@@ -198,6 +198,9 @@ class TestConnection:
         # Assert no error is raised
         _match_hostname(cert, asserted_hostname)
 
+    @pytest.mark.skip(
+        reason="RECENT_DATE is release-time constant; test compares against today's date and fails on rebuilds years later"
+    )
     def test_recent_date(self) -> None:
         # This test is to make sure that the RECENT_DATE value
         # doesn't get too far behind what the current date is.
